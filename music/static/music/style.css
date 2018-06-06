@@ -1,0 +1,18 @@
+body {
+    background: white url("../music/images/paperbg.jpg");
+
+}
+
+.navbar {
+    border-radius: 0;
+
+}
+
+.navbar-brand {
+    font-family: 'Satisfy', cursive;
+}
+
+.panel {
+    background: white;
+
+}

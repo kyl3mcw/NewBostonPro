@@ -1,0 +1,26 @@
+{% extends 'music/base.html' %}
+
+{% block body %}
+    <ul>
+        {% for album in all_albums %}
+            <li>
+                <a href="{% url 'music:detail' album.id %}" class="btn-outline-success">{{ album.album_title }}</a>
+            </li>
+
+            <form action="{% url 'music:album-delete' album.id %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <input type="hidden" name="album_id" value="{{ album.id }}">
+                <button type="submit" class="btn btn-danger btn-sm">
+                    Delete
+                </button>
+
+            </form>
+
+            <!-- Favourite Song-->
+            <a href="#" class="btn btn-outline-warning btn-favourite">
+                <span class="" {% if album.is_fav %}active{% endif %}></span>
+            Fav
+            </a>
+        {% endfor %}
+    </ul>
+{% endblock %}
